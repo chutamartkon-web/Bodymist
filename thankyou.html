@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ขอบคุณที่สั่งซื้อ — Body Scent</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific: vertically centred message */
+    .thanks {
+      min-height: calc(100vh - 4.5rem);
+      min-height: calc(100svh - 4.5rem);
+      display: flex;
+      align-items: center;
+      padding: var(--space-6) 0;
+      text-align: center;
+    }
+
+    .thanks .container {
+      width: 100%;
+    }
+
+    @media (max-width: 720px) {
+      .thanks {
+        min-height: calc(100vh - 4rem);
+        min-height: calc(100svh - 4rem);
+        padding: var(--space-5) 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Body Scent</a>
+      <ul class="nav">
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="product.html">สินค้า</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="thanks">
+    <div class="container">
+      <span class="eyebrow">Thank you</span>
+      <h1>ขอบคุณที่สั่งซื้อ</h1>
+      <hr class="divider">
+      <p class="lead" style="margin: 0 auto var(--space-4);">เราได้รับข้อมูลคำสั่งซื้อของคุณเรียบร้อยแล้ว ขอบคุณที่เลือก Body Scent</p>
+      <a class="btn" href="index.html">กลับหน้าแรก</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

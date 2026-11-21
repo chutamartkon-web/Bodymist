@@ -1,0 +1,720 @@
+/* ==========================================================
+   Body Scent — Premium Minimal Theme
+   Palette: white / cream / deep beige, with soft gold-bronze accent
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Sarabun:wght@300;400;500&display=swap");
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Surfaces */
+  --white: #ffffff;
+  --cream: #faf6ef;
+  --cream-deep: #f2eadc;
+  --beige: #d9c8ad;
+  --beige-deep: #b9a584;
+
+  /* Text */
+  --ink: #2b2620;
+  --ink-soft: #5c5347;
+  --ink-mute: #8a7f70;
+
+  /* Accent: soft gold / bronze */
+  --accent: #a98a57;
+  --accent-deep: #8a6d3f;
+  --accent-soft: #e4d5b8;
+
+  /* Lines */
+  --line: #e6dccb;
+  --line-strong: #2b2620;
+
+  /* Mood dots (used sparingly) */
+  --mood-fresh: #2f5d4a;
+  --mood-sweet: #7b5ea0;
+  --mood-confident: #3f4f63;
+  --mood-romance: #c47a78;
+
+  /* Type */
+  --font-serif: "Cormorant Garamond", "Noto Serif Thai", Georgia, "Times New Roman", serif;
+  --font-sans: "Sarabun", "Noto Sans Thai", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  --container: 1120px;
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent-deep);
+  outline-offset: 3px;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--space-2);
+  color: var(--ink);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  letter-spacing: 0.08em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p {
+  margin: 0 0 var(--space-3);
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: var(--space-2);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 36rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  padding: var(--space-6) 0;
+}
+
+.section--white {
+  background: var(--white);
+}
+
+.section--deep {
+  background: var(--cream-deep);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto var(--space-5);
+}
+
+.section-head p {
+  margin-bottom: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Thin gold divider */
+.divider {
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  border: 0;
+  margin: var(--space-3) auto;
+}
+
+.section-head .divider {
+  margin-top: var(--space-3);
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 246, 239, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.nav a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Buttons (thin, dark, soft) ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem 2.6rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn--solid {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn--solid:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+.btn--small {
+  padding: 0.7rem 1.6rem;
+  font-size: 0.72rem;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: var(--space-7) 0 var(--space-6);
+  text-align: center;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-3);
+}
+
+.hero .lead {
+  margin: 0 auto var(--space-4);
+}
+
+/* ---------- Mood dot (the only place mood color appears) ---------- */
+.mood-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-right: 0.6rem;
+}
+
+.mood-fresh {
+  --mood: var(--mood-fresh);
+}
+.mood-sweet {
+  --mood: var(--mood-sweet);
+}
+.mood-confident {
+  --mood: var(--mood-confident);
+}
+.mood-romance {
+  --mood: var(--mood-romance);
+}
+
+.mood-dot[class*="mood-"] {
+  background: var(--mood);
+}
+
+/* Small mood line under a heading */
+.mood-underline {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--mood, var(--accent));
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.text-center .mood-underline,
+.mood-underline--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Filter tabs ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.filter-btn {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0.4rem 0.2rem;
+  color: var(--ink-mute);
+  cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.filter-btn:hover {
+  color: var(--ink);
+}
+
+.filter-btn.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Product grid & card ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-5) var(--space-4);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.product-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  background: var(--cream-deep);
+  overflow: hidden;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.03);
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.product-card__mood {
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: var(--space-1);
+}
+
+.product-card__name {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-card__meta {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  margin-bottom: var(--space-2);
+}
+
+.product-card__desc {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin-bottom: var(--space-3);
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--accent-deep);
+  letter-spacing: 0.04em;
+}
+
+.price small {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  margin-left: 0.2rem;
+}
+
+/* ---------- Mood feature blocks (e.g. 4 mood intro) ---------- */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.mood-item {
+  text-align: center;
+  padding: var(--space-4) var(--space-2);
+  border-top: 1px solid var(--line);
+}
+
+.mood-item h3 {
+  margin-top: var(--space-2);
+}
+
+.mood-item p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Forms (order form) ---------- */
+.form {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-1);
+}
+
+.form-control {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  transition: border-color 0.3s var(--ease);
+}
+
+.form-control::placeholder {
+  color: var(--beige-deep);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea.form-control {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+}
+
+.form-status {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--accent-deep);
+}
+
+.form-status--error {
+  color: var(--mood-romance);
+}
+
+/* ---------- Cart / order summary ---------- */
+.summary {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.summary-row:last-child {
+  border-bottom: 0;
+}
+
+.summary-total {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--accent-deep);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-5) 0;
+  text-align: center;
+  background: var(--cream-deep);
+  border-top: 1px solid var(--line);
+}
+
+.site-footer .brand {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.site-footer p {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  margin-bottom: var(--space-1);
+}
+
+/* ---------- Utilities ---------- */
+.mt-0 { margin-top: 0; }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: var(--space-4); }
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 960px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: var(--space-5) 0;
+  }
+
+  .hero {
+    padding: var(--space-6) 0 var(--space-5);
+  }
+
+  .site-header .container {
+    height: 4rem;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+  }
+
+  .nav {
+    gap: var(--space-3);
+  }
+
+  .nav a {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .section-head {
+    margin-bottom: var(--space-4);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3) var(--space-2);
+  }
+
+  .product-card__body {
+    padding: var(--space-2);
+  }
+
+  .product-card__desc {
+    display: none;
+  }
+
+  .product-card__footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .btn {
+    padding: 0.95rem 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .site-header .container {
+    justify-content: center;
+  }
+
+  .mood-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__desc {
+    display: block;
+  }
+
+  .product-card__footer {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
